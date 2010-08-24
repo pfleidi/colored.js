@@ -3,17 +3,18 @@
 Brighten up your Node.js/Narwhal scripts, add some color to them!
 
     var sys = require('sys'),
-      style = require('colored');
+      style = require('./lib/colored');
 
     sys.puts("Colored.js is totally " + style.extras.underline(style.foreground.red("rockin'")));
     sys.puts("Colored.js is totally " + style.foreground.black(style.background.yellow("rockin'")));
 
     // Extra credit
     for(var f in style.foreground) {
-      String.prototype[f] = style[f];
+      String.prototype[f] = style.foreground[f];
     }
 
     sys.puts("greener grass!".green());
+
 
 Colored doesn't output any color if the process is run in a non-TTY environment (i.e. running specs from Textmate). This however uses a [proposed addition to Node](http://github.com/chrislloyd/node/commit/d5a439c4d99a904ac9bf52c458682891cce5ccc6).
 
