@@ -5,10 +5,11 @@ Brighten up your Node.js/Narwhal scripts, add some color to them!
     var sys = require('sys'),
       style = require('colored');
 
-    sys.puts("Colored.js is totally " + style.underline(style.red("rockin'")));
+    sys.puts("Colored.js is totally " + style.extras.underline(style.foreground.red("rockin'")));
+    sys.puts("Colored.js is totally " + style.foreground.black(style.background.yellow("rockin'")));
 
     // Extra credit
-    for(var f in style) {
+    for(var f in style.foreground) {
       String.prototype[f] = style[f];
     }
 
@@ -18,7 +19,7 @@ Colored doesn't output any color if the process is run in a non-TTY environment 
 
 ## License
 
-Copyright (c) 2009 Chris Lloyd.
+Copyright (c) 2009 Chris Lloyd, Sven 'pfleidi' Pfleiderer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
